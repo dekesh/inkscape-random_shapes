@@ -1,0 +1,14 @@
+Inkscaoe plugin to place pictures at random places and orientation
+in page. Works for inkscape 0.92 (and below?). 
+
+Should be placed under the inkscape extensions folder. In linux:
+
+~/.config/inkscape/extensions/random_shapes.py
+~/.config/inkscape/extensions/random_shapes.inx
+
+After installation should appear under 
+Extensions->Arrange->random shapes filler.
+
+Usuage:
+Import all the pictures of interest into inkscape layer, and run the extension
+to replicate the pictures in a non-overlapping way.

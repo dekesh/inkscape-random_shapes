@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+    <_name>Random Shapes Filler</_name>
+    <id>org.shapes.filter.RSF</id>
+	<dependency type="executable" location="extensions">random_shapes.py</dependency>
+	<dependency type="executable" location="extensions">inkex.py</dependency>
+
+	<param name="tab" type="notebook">
+          <page name="Options" _gui-text="Options">
+	    <param name="active_layer" type="string"  _gui-text="Layer name (if empty uses current layer):"></param>
+	    <param name="max_rot" type="float" appearance="full"  min="0.0" max="180.0" _gui-text="Max rotation (deg):">0</param>
+	    <param name="min_scale"   type="float" appearance="full"  min="0.01" max="1" _gui-text="Min scale (0.01 to 1)">1</param>
+	    <param name="num_rep" type="int" min="1" max="5000"  _gui-text="Maximum number of copies:">50</param>
+	    <param name="inv_x" type="boolean"  _gui-text="Random flip-x">true</param>
+	    <param name="inv_y" type="boolean"  _gui-text="Random flip-y">true</param>
+	    <param name="scale_decrease" type="boolean"  _gui-text="Gradual scale decrease">false</param>
+	    <param name="strict_borders" type="boolean"  _gui-text="Strict borders">false</param>
+	    <param name="overlap" type="boolean"  _gui-text="Allow overlap">false</param>
+	    <!-- <param name="max_failed_attempts" type="int" min="1" max="1000"  _gui-text="Max failed attempts:">400</param> -->
+	  </page>
+	  <page name="Help" _gui-text="Help">
+	    <_param name="instructions" type="description" xml:space="preserve">This extension replicates images from chosen layer into a new layer. The images are randomly placed and optionally are randomaly rotated, scaled or inverted.
+    * Layer name: layer to replicate figures from.
+    * Max rotation: Maximum (absolute) random rotation of each image.
+    * Min scale: Each image is randomly scaled between it's original scale and Min scale.
+    * Maximum number of copies: maximum number of total copies. Can be less if extension is not able to find place for all the copies
+    * Random flip-x, Random flip-y: replicated images are randomly flipped in x and y direction.
+    * Allow  overlap: allow replicated images to overlap
+    * Gradual scale decrease: if true, decreases original scale of images any 10 or so unsuccessful tries to place new images. Sometimes produces more aesthetic output.
+    * Strict borders: do not allow images to be placed out of the document borders</_param>
+	    <!-- * Max failed attempts: maximum number of failed attempts to place images before exhausting -->
+	  </page> 
+	</param>
+	
+    <effect>
+      <object-type>all</object-type>
+      <effects-menu>
+	<submenu _name="Arrange"/> 
+      </effects-menu>						    		
+    </effect>
+    <script>
+        <command reldir="extensions" interpreter="python">random_shapes.py</command>
+    </script>
+</inkscape-extension>
